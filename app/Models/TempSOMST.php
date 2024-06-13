@@ -1,0 +1,32 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class TempSOMST extends Model
+{
+    use HasFactory;
+
+    protected $table = 't_temp_somst';
+    protected $primaryKey = 'fc_sono';
+    public $guarded = [
+        'created_at',
+        'updated_at',
+        'deleted_at'
+    ];
+    public $incrementing = false;
+
+    public function tempsodtl () {
+        return $this->hasMany(TempSODTL::class, 'fc_sono', 'fc_sono');
+    }
+
+    public function customer () {
+        return $this->hasOne(Customer::class, 'fc_membercode', 'fc_membercode');
+    }
+
+    public function sales () {
+        return $this->hasOne(Sales::class, 'fc_salescode', 'fc_salescode');
+    }
+}
