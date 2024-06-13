@@ -12,7 +12,6 @@ class SOMST extends Model
     protected $table = 't_somst';
     protected $primaryKey = 'fc_sono';
     public $guarded = [
-        'fc_sono',
         'created_at',
         'updated_at',
         'deleted_at'
