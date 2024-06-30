@@ -32,10 +32,12 @@ Route::prefix('temp-so-mst')->controller(TempSOMSTController::class)->group(func
     Route::post('/', 'createTempSOMST');
     Route::put('/{fc_sono}', 'setDetailInfoTempSOMST');
     Route::put('/{fc_sono}/submit', 'submitTempSOMST');
+    Route::put('/{fc_sono}/cancel', 'cancelTempSOMST');
 });
 
 Route::prefix('temp-so-dtl')->controller(TempSODTLController::class)->group(function() {
     Route::get('/{fc_sono}', 'getSODTLbySONO');
+    Route::get('/stock/all', 'getAllStock');
     Route::post('/{fc_sono}', 'addSODTL');
     Route::put('/{fc_sono}', 'updateSODTL');
     Route::delete('/{fc_sono}', 'removeSODTL');
@@ -68,4 +70,5 @@ Route::prefix('general')->controller(GeneralConstroller::class)->group(function(
     Route::get('/bank', 'getBank');
     Route::get('/cust-type', 'getTypeCustomer');
     Route::get('/pph-type', 'getTypePPH');
+    Route::get('/so-type', 'getSOType');
 });

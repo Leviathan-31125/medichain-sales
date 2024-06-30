@@ -22,4 +22,8 @@ class Stock extends Model
     public function tempsodtl() {
         return $this->hasMany(TempSODTL::class, 'fc_barcode', 'fc_barcode');
     }
+
+    public function brand() {
+        return $this->hasOne(Brand::class, 'fc_brandcode', 'fc_brandcode');
+    }
 }

@@ -26,4 +26,9 @@ class GeneralConstroller extends Controller
         $data = TRXType::where('fc_trx', 'CUST_TYPE')->get();
         return response()->json($data);
     }
+
+    public function getSOType() {
+        $data = TRXType::where('fc_trx', 'SO_TYPE')->get();
+        return response()->json($data);
+    }
 }
